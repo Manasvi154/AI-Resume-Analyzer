@@ -49,7 +49,7 @@ This project is designed to help recruiters reduce manual effort by extracting k
 - Libraries: pandas, scikit-learn
 
 ## Project Structure
-
+<pre>
 AI-Resume-Analyzer/
 ├── app.py
 ├── utils.py
@@ -61,7 +61,7 @@ AI-Resume-Analyzer/
 └── templates/
     ├── index.html
     └── result.html
-
+</pre>
 ## Setup & Run
 
 1. Clone the repository  

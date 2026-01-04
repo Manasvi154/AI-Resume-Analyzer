@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> <!-- Professional font -->
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="title">AI Resume Analyzer</h1>
+        <p class="subtitle">Upload resumes and a job description to find the most suitable candidates.</p>
+
+        <div class="form-container animate">
+            <form action="/" method="POST" enctype="multipart/form-data">
+                <label>Upload Resume (PDF only):</label>
+                <input type="file" name="resumes" multiple required><br><br>
+
+                <label>Enter Job Description:</label>
+                <textarea name="job_description" rows="7" cols="50" required></textarea><br><br>
+
+                <button type="submit" class="analyze-btn">Analyze</button>
+            </form>
+        </div>
+    </div>
+
+        <!-- Result Section After Analysis -->
+        {% if results %}
+        <section class="results-container">
+            <h2>Ranking Score</h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Resume</th>
+                            <th>Score (%)</th>
+                            <th>Matched Skills</th>
+                            <th>Matched Title</th>
+                            <th>Education</th>
+                            <th>Experience</th>
+                            <th>Languages</th>
+                            <th>Download</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for res in results %}
+                        <tr class="result-row">
+                            <td>{{ loop.index }}</td>
+                            <td>{{ res.filename }}</td>
+                            <td>{{ res.score }}</td>
+                            <td>{{ res.fields.skills | join(', ') }}</td>
+                            <td>{{ res.fields.job_titles | join(', ') }}</td>
+                            <td>{{ res.fields.education | join(', ') }}</td>
+                            <td>{{ res.fields.experience | join(', ') }}</td>
+                            <td>{{ res.fields.languages | join(', ') }}</td>
+                            <td>
+                                {% if res.filename.endswith('.pdf') %}
+                                    <a href="{{ url_for('download_resume', filename=res.filename) }}" class="download-link">Download</a>
+                                {% else %}
+                                    N/A
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Download CSV Button -->
+            <form method="POST" action="{{ url_for('download_report') }}">
+                <button type="submit" class="download-btn">Download Report as CSV</button>
+            </form>
+        </section>
+
+        {% elif submitted and results|length == 0 %}
+        <!-- Message if No Results -->
+        <p class="no-match">No matching resumes found.</p>
+        {% endif %}
+
+        <!-- Flash Messages (Errors, Info) -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <ul class="flashes">
+            {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+
+        <footer>
+            <p>© 2025 AI Resume Analyzer | All Rights Reserved</p>
+        </footer>
+    
+
+</body>
+</html>
+

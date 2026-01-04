@@ -1,0 +1,205 @@
+/* Reset body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-image: url("/static/css/office.jpeg"); /* Background Image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Container to center everything */
+.container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Title and Subtitle */
+.title {
+    font-size: 48px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px #000000;
+}
+
+.subtitle {
+    font-size: 20px;
+    margin-bottom: 40px;
+    color: #e0e0e0;
+}
+
+/* Form Section */
+.form-container {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px 30px;
+    width: 450px; /* Form width */
+    margin: auto;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* Form elements */
+form label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+input[type="file"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: none;
+    background-color: #f0f0f0;
+    color: #333;
+    font-size: 1rem;
+}
+
+textarea {
+    resize: none;
+}
+
+/* Analyze Button */
+.analyze-btn {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.analyze-btn:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    transform: scale(1.05);
+}
+
+/* Results Section */
+.results-container {
+    margin-top: 80px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px 30px;
+    width: 95%;
+    max-width: 1500px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
+    text-align: center;
+}
+
+/* Table Styling */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-size: 15px;
+}
+
+th {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    font-weight: bold;
+}
+
+.result-row:hover {
+    background-color: #f2f2f2;
+}
+
+/* Download Link inside Table */
+.download-link {
+    color: #6a11cb;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.download-link:hover {
+    text-decoration: underline;
+}
+
+/* Download Report Button */
+.download-btn {
+    margin-top: 20px;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    transform: scale(1.05);
+}
+
+/* No match found */
+.no-match {
+    color: #a52112;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 30px;
+}
+
+/* Flash message styling */
+.flashes {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    color: #ee2828;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+/* Animation for Form */
+.animate {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.2s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+

@@ -1,0 +1,4 @@
+Datasets/*.zip
+Datasets/*.zip
+# Virtual environment
+venv/

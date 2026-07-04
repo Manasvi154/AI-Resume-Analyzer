@@ -148,10 +148,3 @@ Future improvements planned for the project include:
 - Add email notifications for shortlisted candidates.
 - Support multilingual resume analysis.
 
-
-
-**Manasvi Pawar**
-
-MCA (Artificial Intelligence & Machine Learning)
-
-Python | NLP | Machine Learning | Flask | SQL | Data Analytics
